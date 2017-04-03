@@ -40,7 +40,7 @@ public class ContactoTelefonicoController {
             String trama = ContactoTelefonicoUtils.construyeTrama(centro, prefijo, telefono);
             sendRedis = redisService.sendRedis(trama);
             if (sendRedis) {
-                log.info("AUDIT [" + URL_SERVICE + centro + "/" + prefijo + "/" + telefono + "]");
+                log.warn("AUDIT [" + URL_SERVICE + centro + "/" + prefijo + "/" + telefono + "]");
                 success = sendRedis;
             }
         } catch (Exception ex) {
